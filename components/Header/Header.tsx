@@ -5,16 +5,16 @@ import {
   InstagramLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import { Mail, Map, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { NavigationMenuDemo } from "./NavMenu";
-
+import { MapPin } from "lucide-react";
 export default function Header() {
   return (
     <>
-      <nav className="mx-auto container flex items-center justify-between">
-        <ul className="flex flex-row gap-2">
-          <li className="flex flex-row">
+      <nav className="mx-auto container  md:flex md:flex-row flex-col  items-center justify-between text-white font-bold">
+        <ul className="flex md:flex-row flex-col gap-2 ">
+          <li className="flex md:flex-row  ">
             {" "}
             <Mail className="mr-1 " /> greencomores@gmail.com{" "}
           </li>
@@ -22,7 +22,7 @@ export default function Header() {
             <Phone className="mr-1 " /> 07.90.56.12.12
           </li>
           <li className="flex flex-row">
-            <Map className="mr-1 " /> 12 rue Hahay
+            <MapPin className="mr-1 " /> 12 rue Hahay
           </li>
         </ul>
         <ul className="flex items-center  gap-3">
@@ -43,7 +43,7 @@ export default function Header() {
           height={80}
           src="/logo.png"
           alt="Élagage Image"
-          className=""
+          className="w-36"
         />
         <NavigationMenuDemo />
       </aside>

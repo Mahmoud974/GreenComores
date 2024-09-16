@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import CountUp from "react-countup";
 
 export default function MiniNav() {
   return (
@@ -32,9 +33,7 @@ export default function MiniNav() {
             </li>
             <li>
               <strong>Inspection de sécurité :</strong>{" "}
-              {`Identification des
-              branches mortes, malades ou dangereuses afin d'assurer la sécurité
-              autour de votre propriété.`}
+              {`Identification des branches mortes, malades ou dangereuses afin d'assurer la sécurité autour de votre propriété.`}
             </li>
             <li>
               <strong>{`Conseils d'entretien :`}</strong> Recommandations
@@ -42,20 +41,32 @@ export default function MiniNav() {
               la beauté de vos espaces verts.
             </li>
           </ul>
-          <div className="flex space-x-6">
-            <div>
-              <h3 className="text-6xl font-bold">550+</h3>
-              <p className="text-gray-600">Arbre coupés</p>
+
+          {/* Compteur */}
+          <section className="py-5">
+            <div className="mx-auto">
+              <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-6 justify-center">
+                <div className="p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 text-center">
+                  <h3 className="text-6xl font-bold text-green-700">
+                    <CountUp start={0} end={550} duration={1} />+
+                  </h3>
+                  <p className="text-gray-600 mt-2">Arbres coupés</p>
+                </div>
+                <div className="p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 text-center">
+                  <h3 className="text-6xl font-bold text-green-700">
+                    <CountUp start={0} end={100} duration={1} suffix="m²" />
+                  </h3>
+                  <p className="text-gray-600 mt-2">Gazon coupé</p>
+                </div>
+                <div className="p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 text-center">
+                  <h3 className="text-6xl font-bold text-green-700">
+                    <CountUp start={0} end={20} duration={1} />
+                  </h3>
+                  <p className="text-gray-600 mt-2">Créations de jardin</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-6xl font-bold">100m2</h3>
-              <p className="text-gray-600">Gazon coupé</p>
-            </div>
-            <div>
-              <h3 className="text-6xl font-bold">20</h3>
-              <p className="text-gray-600">Créations de jardin</p>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
     </section>
