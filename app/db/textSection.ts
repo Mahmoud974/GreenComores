@@ -1,6 +1,7 @@
 export const textSection = [
   {
     slug: "contractyearly",
+    img: "/mininav/contact.png",
     title: "Contrat Annuel d'Élagage",
     items: [
       {
@@ -27,6 +28,7 @@ export const textSection = [
   },
   {
     slug: "diagnostic",
+    img: "/mininav/tonte.png",
     title: "Diagnostic Phytosanitaire",
     items: [
       {
@@ -53,6 +55,7 @@ export const textSection = [
   },
   {
     slug: "elegage",
+    img: "/mininav/tonte.png",
     title: "Élagage & Tonte",
     items: [
       {
@@ -79,6 +82,7 @@ export const textSection = [
   },
   {
     slug: "cloture",
+    img: "/contact.png",
     title: "Clôture & Terrasse",
     items: [
       {
@@ -104,6 +108,7 @@ export const textSection = [
   },
   {
     slug: "tools",
+    img: "/contact.png",
     title: "Outil de jardinage",
     items: [
       {
@@ -130,6 +135,7 @@ export const textSection = [
   },
   {
     slug: "creations",
+    img: "/contact.png",
     title: "Création de jardin",
     items: [
       {
@@ -156,6 +162,7 @@ export const textSection = [
   },
   {
     slug: "terrassement",
+    img: "/contact.png",
     title: "Terrassement",
     items: [
       {

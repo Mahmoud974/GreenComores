@@ -10,13 +10,11 @@ type MiniNavProps = {
 };
 
 export default function MiniNav({ slug }: MiniNavProps) {
-  // Trouver la section en fonction du slug
   const currentSection = textSection.find((section) => section.slug === slug);
   console.log(currentSection);
 
-  // Si la section n'est pas trouvée, afficher un message d'erreur ou une autre logique
   if (!currentSection) {
-    return <div>Section non trouvée</div>;
+    return;
   }
 
   return (
@@ -27,9 +25,9 @@ export default function MiniNav({ slug }: MiniNavProps) {
           <Image
             width={800}
             height={800}
-            src="/contact.jpg"
+            src={currentSection.img}
             alt="Élagage Image"
-            className="rounded-lg shadow-lg"
+            className="rounded-lg "
           />
         </div>
 
@@ -47,7 +45,7 @@ export default function MiniNav({ slug }: MiniNavProps) {
           </ul>
 
           {/* Compteur */}
-          <section className="py-5">
+          <section className="ml-12 py-5">
             <div className="mx-auto">
               <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-6 justify-center">
                 <div className="p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 text-center">
@@ -66,7 +64,7 @@ export default function MiniNav({ slug }: MiniNavProps) {
                   <h3 className="text-6xl font-bold text-green-700">
                     <CountUp start={0} end={20} duration={1} />
                   </h3>
-                  <p className="text-gray-600 mt-2">Créations de jardin</p>
+                  <p className="text-gray-600 mt-2">Jardins crées</p>
                 </div>
               </div>
             </div>

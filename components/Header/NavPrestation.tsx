@@ -20,7 +20,7 @@ export default function NavPrestation() {
   const navImg: NavImg[] = [
     {
       icon: <RiFilePaper2Line className="text-4xl mx-auto" />,
-      text: `Contract \n annuel`,
+      text: `Contrat \n annuel`,
       url: "contractyearly",
     },
     {
