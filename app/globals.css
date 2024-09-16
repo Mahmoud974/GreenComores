@@ -5,3 +5,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+.bg-dark-green {
+  background-color: #004d00; /* Remplacez cette couleur par celle que vous souhaitez */
+}

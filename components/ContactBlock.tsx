@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ContactForm from "./Formulaire";
+import Link from "next/link";
 
 export default function ContactBlock() {
   return (
@@ -16,7 +17,9 @@ export default function ContactBlock() {
         />
       </div>
       <div className="bg-gradient-to-b from-green-800 to-green-700 w-full h-[45rem] ">
-        <ContactForm />
+        <Link href="/">
+          <ContactForm />
+        </Link>
       </div>
 
       {/* Colonne droite : Image */}

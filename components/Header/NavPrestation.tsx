@@ -1,12 +1,13 @@
+"use client";
 import { Fence } from "lucide-react";
-import Link from "next/link";
 import React, { useState } from "react";
 import { RiFilePaper2Line } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
 import { RiTreeFill } from "react-icons/ri";
-import { GiGardeningShears } from "react-icons/gi";
-import { GiMonsteraLeaf } from "react-icons/gi";
+import { GiGardeningShears, GiMonsteraLeaf } from "react-icons/gi";
 import { TbGardenCart } from "react-icons/tb";
+import MiniNav from "@/app/optiondescription/contractyearly/page";
+
 type NavImg = {
   icon: React.JSX.Element;
   text: string;
@@ -14,7 +15,7 @@ type NavImg = {
 };
 
 export default function NavPrestation() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
   const navImg: NavImg[] = [
     {
@@ -45,7 +46,7 @@ export default function NavPrestation() {
     {
       icon: <GiMonsteraLeaf className="text-4xl mx-auto -rotate-45" />,
       text: "Création de jardin",
-      url: "creactions",
+      url: "creations",
     },
     {
       icon: <TbGardenCart className="text-4xl mx-auto" />,
@@ -60,23 +61,19 @@ export default function NavPrestation() {
         {navImg.map((item: NavImg, index: number) => (
           <li
             key={index}
-            onClick={() => setActiveIndex(index)}
-            className={`w-36 h-36 rounded-full shadow-xl flex justify-center items-center flex-col cursor-pointer bg-green-700 hover:bg-green-900 text-white hover:scale-105 transition-transform duration-300 ${
-              activeIndex === index ? "bg-dark-green" : ""
+            onClick={() => setActiveSlug(item.url || "")}
+            className={`w-36 h-36  text-center rounded-full shadow-xl flex justify-center items-center flex-col cursor-pointer bg-green-700 hover:bg-green-900 text-white transition-transform duration-300 ${
+              activeSlug === item.url ? "bg-dark-green" : ""
             }`}
           >
-            <Link
-              href={"/optiondescription/" + item.url}
-              className="text-center"
-            >
-              <div className="transform hover:scale-110 transition-transform duration-300 mb-2">
-                {item.icon}
-              </div>
-              <p className="font-bold text-sm">{item.text}</p>
-            </Link>
+            <div className="active text-center transform hover:scale-110 transition-transform duration-300 mb-2">
+              {item.icon}
+            </div>
+            <p className="font-bold text-sm">{item.text}</p>
           </li>
         ))}
       </ul>
+      {activeSlug && <MiniNav slug={activeSlug} />}
     </section>
   );
 }

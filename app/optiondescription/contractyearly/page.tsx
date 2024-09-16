@@ -1,8 +1,24 @@
+"use client";
+
+import { textSection } from "@/app/db/textSection";
 import Image from "next/image";
 import React from "react";
 import CountUp from "react-countup";
 
-export default function MiniNav() {
+type MiniNavProps = {
+  slug: string;
+};
+
+export default function MiniNav({ slug }: MiniNavProps) {
+  // Trouver la section en fonction du slug
+  const currentSection = textSection.find((section) => section.slug === slug);
+  console.log(currentSection);
+
+  // Si la section n'est pas trouvée, afficher un message d'erreur ou une autre logique
+  if (!currentSection) {
+    return <div>Section non trouvée</div>;
+  }
+
   return (
     <section className="mx-auto container text-black">
       <div className="flex mx-auto container text-xl lg:flex-row items-center justify-between p-10">
@@ -19,27 +35,15 @@ export default function MiniNav() {
 
         {/* Text Section */}
         <div className="lg:w-1/2 w-full p-5 ">
-          <h2 className="text-2xl font-bold mb-4">{`Contrat Annuel d'Élagage`}</h2>
+          <h2 className="text-3xl  font-bold mb-4 ml-4">
+            {currentSection.title}
+          </h2>
           <ul className="list-disc pl-6 mb-6 space-y-4">
-            <li>
-              <strong>Élagage saisonnier :</strong> Des interventions planifiées
-              selon les besoins spécifiques de chaque arbre, garantissant leur
-              santé et leur croissance optimale.
-            </li>
-            <li>
-              <strong>Nettoyage après intervention :</strong> Après chaque
-              prestation, nous veillons à laisser vos espaces propres, sans
-              branches ni débris.
-            </li>
-            <li>
-              <strong>Inspection de sécurité :</strong>{" "}
-              {`Identification des branches mortes, malades ou dangereuses afin d'assurer la sécurité autour de votre propriété.`}
-            </li>
-            <li>
-              <strong>{`Conseils d'entretien :`}</strong> Recommandations
-              personnalisées pour améliorer la santé de vos arbres et préserver
-              la beauté de vos espaces verts.
-            </li>
+            {currentSection.items.map((item, index) => (
+              <li key={index}>
+                <strong>{item.strongText}</strong> {item.description}
+              </li>
+            ))}
           </ul>
 
           {/* Compteur */}
